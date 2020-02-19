@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'Homepage.dart';
+//import 'Homepage.dart';
 import 'Destination.dart';
+import 'Signup.dart';
 
 
-main() => runApp(MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,12 +14,12 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
 
-      home:Homepage(),
+      home:SignupPage(),
 
-      routes: <String,WidgetBuilder> {
-        "\a" : (BuildContext context ) => Destination()
+      // routes: <String,WidgetBuilder> {
+      //   "\a" : (BuildContext context ) => Destination()
 
-      },
+      // },
       
     );
   }

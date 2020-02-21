@@ -26,6 +26,7 @@ return Container(
 }
 class  Homepageless extends StatelessWidget {
    final String name,email,phoneno;
+   
     Homepageless(
         {
           Key key,
@@ -39,7 +40,8 @@ class  Homepageless extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      body:Homepage()
       
     );
   }
@@ -53,6 +55,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+
+  
   
   //AssetImage annapurna = AssetImage("images/anna.jpeg");
   

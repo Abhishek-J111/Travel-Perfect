@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'Homepage.dart';
-import 'Destination.dart';
-import 'Signup.dart';
+import 'Login-Signup.dart';
+//import 'Signup.dart';
 
 
 void main() => runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
 
-      home:SignupPage(),
+      home:LoginSignup(),
 
       // routes: <String,WidgetBuilder> {
       //   "\a" : (BuildContext context ) => Destination()

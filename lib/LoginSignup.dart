@@ -23,7 +23,7 @@ class _LoginSignupState extends State<LoginSignup> {
       
          decoration: new BoxDecoration(
           image: new DecorationImage(
-            image: new AssetImage("images/login-signup.jpeg"),
+            image: new AssetImage("images/Basecamp.jpeg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -39,7 +39,7 @@ class _LoginSignupState extends State<LoginSignup> {
                                  child: ButtonTheme(
                                    height: 50.0,
                                    minWidth: 200.0,
-                                   buttonColor: Colors.grey,
+                                   buttonColor: Colors.white70,
                                                                     child: RaisedButton(  //Button for signup
                                          onPressed: _Signup,
                                          
@@ -62,7 +62,7 @@ class _LoginSignupState extends State<LoginSignup> {
                                   child: ButtonTheme(
                                      height: 50.0,
                                      minWidth: 200.0,
-                                     buttonColor: Colors.grey,
+                                     buttonColor: Colors.white70,
                                     
 
                                       child: RaisedButton(

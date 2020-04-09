@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Homepage.dart';
+import 'Homepage1.dart';
 
 
 class SignupPage extends StatefulWidget {
@@ -22,20 +22,21 @@ class _SignupPageState extends State<SignupPage>{
         //to store the background image of signup page
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/background.jpg"),
+            image: AssetImage("images/2.v2.png",),
             
-            fit: BoxFit.fill
+            fit: BoxFit.cover
+          
         
           ),
         ),
             
         child: Padding(
-          padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
+          padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 30.0),
              child: SingleChildScrollView(
                  child: Form(
                  key: _key,
                  child: Padding(
-                  padding: EdgeInsets.all(40.0),
+                  padding: EdgeInsets.all(60.0),
                      child: Card(
                        color: Colors.transparent,
                        shape:RoundedRectangleBorder(
@@ -54,7 +55,7 @@ class _SignupPageState extends State<SignupPage>{
                       Card(
                             color: Colors.transparent,
                             child: ListTile(
-                            leading:Icon(Icons.person,color: Colors.black,size: 30.0,),
+                            leading:Icon(Icons.person,color: Colors.blue,size: 30.0,),
                             title: TextFormField(
                             validator: (input){
                               if(input.isEmpty)
@@ -62,7 +63,9 @@ class _SignupPageState extends State<SignupPage>{
                              },
 
                              decoration: InputDecoration(
-                              labelText: ('User Name')
+                              labelText: ('User Name'),
+                              
+                              
                           ),
                             onSaved: (input)=> Name=input,
 
@@ -75,8 +78,9 @@ class _SignupPageState extends State<SignupPage>{
                       Card(
                        color: Colors.transparent,      
                           child: ListTile(
-                          leading:Icon(Icons.email,color: Colors.black,size: 30.0,),
+                          leading:Icon(Icons.email,color: Colors.blue,size: 30.0,),
                           title: TextFormField(
+
                           validator: (input){
                             if(input.isEmpty)
                             return('Enter email');
@@ -97,7 +101,7 @@ class _SignupPageState extends State<SignupPage>{
                      Card(
                         color: Colors.transparent,
                         child: ListTile(
-                        leading:Icon(Icons.phone,color: Colors.black,size: 30.0,),
+                        leading:Icon(Icons.phone,color: Colors.blue,size: 30.0,),
                         title: TextFormField(
                           validator: (input){
                             if(input.isEmpty)
@@ -117,7 +121,7 @@ class _SignupPageState extends State<SignupPage>{
                     ButtonTheme(
                       height: 40.0,
                       minWidth: 150.0,
-                      buttonColor: Colors.grey,
+                      buttonColor: Colors.white70,
                        child: RaisedButton(  //Button for signup
                          onPressed: _sendToNextPage,
                          

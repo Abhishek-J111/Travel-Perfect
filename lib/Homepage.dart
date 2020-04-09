@@ -24,28 +24,7 @@ return Container(
               );
 
 }
-class  Homepageless extends StatelessWidget {
-   final String name,email,phoneno;
-   
-    Homepageless(
-        {
-          Key key,
-          @required
-          this.name,
-          this.email,
-          this.phoneno,
-        }
-   ) : super(key:key);
 
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body:Homepage()
-      
-    );
-  }
-}
 
 
 
@@ -66,7 +45,7 @@ class _HomepageState extends State<Homepage> {
   {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Travel Perfect'),
+        title: Text('Destinations'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.search),
@@ -76,58 +55,58 @@ class _HomepageState extends State<Homepage> {
       ),
 
 
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text('Abhishek Joshi'),
-              accountEmail:  Text('aabhisheekk@gmail.com'),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.blueAccent,
-                child: Text('AG'),
-              ),
-            ),
-            ListTile(
-              title: Text('Home'),
-              trailing: Icon(Icons.home),
-            ),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     children: <Widget>[
+      //       UserAccountsDrawerHeader(
+      //         accountName: Text('Abhishek Joshi'),
+      //         accountEmail:  Text('aabhisheekk@gmail.com'),
+      //         currentAccountPicture: CircleAvatar(
+      //           backgroundColor: Colors.blueAccent,
+      //           child: Text('AG'),
+      //         ),
+      //       ),
+      //       ListTile(
+      //         title: Text('Home'),
+      //         trailing: Icon(Icons.home),
+      //       ),
 
-            ListTile(
-              title:  Text('Destinations'),
-              trailing: Icon(Icons.place),
-              onTap: () => Navigator.of(context).pushNamed('\a'),
+      //       ListTile(
+      //         title:  Text('Destinations'),
+      //         trailing: Icon(Icons.place),
+      //         onTap: () => Navigator.of(context).pushNamed('\a'),
 
-            ),
+      //       ),
 
-            ListTile(
-              title: Text(' Trek Companions'),
-              trailing: Icon(Icons.group),
-            ),
+      //       ListTile(
+      //         title: Text(' Trek Companions'),
+      //         trailing: Icon(Icons.group),
+      //       ),
 
-            ListTile(
-              title: Text('Projects'),
+      //       ListTile(
+      //         title: Text('Projects'),
             
-            ),
+      //       ),
 
-            ListTile(
-              title: Text('Videos'),
-              trailing: Icon(Icons.video_label),
-            ),
+      //       ListTile(
+      //         title: Text('Videos'),
+      //         trailing: Icon(Icons.video_label),
+      //       ),
 
-            ListTile(
-              title: Text('Feedback'),
-              trailing: Icon(Icons.feedback),
-            ),
+      //       ListTile(
+      //         title: Text('Feedback'),
+      //         trailing: Icon(Icons.feedback),
+      //       ),
 
-             ListTile(
-              title: Text('Exit'),
-              trailing: Icon(Icons.exit_to_app),
-              onTap: () => Navigator.of(context).pop(),
-            )
+      //        ListTile(
+      //         title: Text('Exit'),
+      //         trailing: Icon(Icons.exit_to_app),
+      //         onTap: () => Navigator.of(context).pop(),
+      //       )
             
-          ],
-        ),
-      ),
+      //     ],
+      //   ),
+      // ),
         
       body: Container(
         

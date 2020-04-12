@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "633082647430",
+    "firebase_url": "https://flutter-5e7ae.firebaseio.com",
+    "project_id": "flutter-5e7ae",
+    "storage_bucket": "flutter-5e7ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633082647430:android:3ede16af4cae23f3855207",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633082647430-2rrqs7d4h6cg63o6osqnref3h1h6b3v7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD54fsE_u1rUbfgoYZd45Lwf5NAUYl1p-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633082647430-2rrqs7d4h6cg63o6osqnref3h1h6b3v7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633082647430:android:290c2191b75a73b6855207",
+        "android_client_info": {
+          "package_name": "com.example.travelperfect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633082647430-2rrqs7d4h6cg63o6osqnref3h1h6b3v7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD54fsE_u1rUbfgoYZd45Lwf5NAUYl1p-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633082647430-2rrqs7d4h6cg63o6osqnref3h1h6b3v7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

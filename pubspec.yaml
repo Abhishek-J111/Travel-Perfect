@@ -49,6 +49,7 @@ flutter:
    - images/Annapurna.jpeg
    - images/Basecamp.jpeg
    - images/2.v2.png
+   - images/TravelPerfect.png
   
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

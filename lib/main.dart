@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'Homepage.dart';
-import 'LoginSignup.dart';
-//import 'Signup.dart';
+import 'Homepage1.dart';
+import 'signin.dart';
+import 'signup.dart';
 
 
 void main() => runApp(MyApp());
@@ -14,12 +14,14 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
 
-      home:LoginSignup(),
+      home:Homepage1(),
 
-      // routes: <String,WidgetBuilder> {
-      //   "\a" : (BuildContext context ) => Destination()
+      routes: < String, WidgetBuilder > {
+       "/SigninPage" : (BuildContext context ) => signin(),
+       "/SignupPage" : (BuildContext context ) => SignupPage(),
+       
 
-      // },
+      },
       
     );
   }

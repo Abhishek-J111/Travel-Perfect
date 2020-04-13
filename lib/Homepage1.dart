@@ -1,35 +1,11 @@
-
-
+  
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'Homepage.dart';
+import 'dart:async';
 
 
-class  Homepageless extends StatelessWidget {
-   final String name,email,phoneno;
-   
-    Homepageless(
-        {
-          Key key,
-          @required
-          this.name,
-          this.email,
-          this.phoneno,
-        }
-   ) : super(key:key);
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-     
-      body:Homepage1()
-      
-    );
-  }
-}
 
 class Homepage1 extends StatefulWidget {
-
 
   @override
   _Homepage1State createState() => _Homepage1State();
@@ -37,10 +13,50 @@ class Homepage1 extends StatefulWidget {
 
 class _Homepage1State extends State<Homepage1> {
 
- _DestinationPage(){
-   Navigator.push(context, 
-   MaterialPageRoute(builder: (context)=> Homepage()));
- }
+//  _DestinationPage(){
+//    Navigator.push(context, 
+//    MaterialPageRoute(builder: (context)=> Homepage()));
+//  }
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseUser user;
+  bool isSigned = false;
+
+  checkAuthentication() {
+    _auth.onAuthStateChanged.listen((user) {
+      if(user == null){
+        Navigator.pushReplacementNamed(context, "/SigninPage");
+
+      }
+    });
+  }
+
+   getuser() async {
+    FirebaseUser firebaseuser = await _auth.currentUser();
+    await  firebaseuser?.reload();
+    firebaseuser = await _auth.currentUser();
+
+    if(firebaseuser != null) {
+      setState(() {
+        this.user= firebaseuser;
+        this.isSigned= true;
+      });
+    }
+    print(this.user);
+
+  }
+
+  signOut() async {
+    _auth.signOut();
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    this.checkAuthentication();
+    this.getuser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,11 +68,11 @@ class _Homepage1State extends State<Homepage1> {
         child: ListView(
           children: <Widget>[
             UserAccountsDrawerHeader(
-              accountName: Text('Abhishek Joshi'),
-              accountEmail:  Text('aabhisheekk@gmail.com'),
+              accountName: Text((user.displayName)),
+              accountEmail:  Text(user.email),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.blueAccent,
-                child: Text('AG'),
+                child: Text(user.displayName.substring(0,1)),
               ),
             ),
             ListTile(
@@ -67,7 +83,7 @@ class _Homepage1State extends State<Homepage1> {
             ListTile(
               title:  Text('Destinations'),
               trailing: Icon(Icons.place),
-              onTap: () => Navigator.of(context).pushNamed('\a'),
+             // onTap: () => Navigator.of(context).pushNamed('\a'),
 
             ),
 
@@ -97,9 +113,9 @@ class _Homepage1State extends State<Homepage1> {
             ),
 
              ListTile(
-              title: Text('Exit'),
+              title: Text('Signout'),
               trailing: Icon(Icons.exit_to_app),
-              onTap: () => Navigator.of(context).pop(),
+              onTap: signOut,
             )
             
           ],
@@ -135,7 +151,7 @@ class _Homepage1State extends State<Homepage1> {
            ),
               
           onTap: (){
-            _DestinationPage();
+            //_DestinationPage();
             }
           ),
            GestureDetector(

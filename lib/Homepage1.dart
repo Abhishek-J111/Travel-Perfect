@@ -1,8 +1,10 @@
   
+// import 'dart:html';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-
+import 'package:url_launcher/url_launcher.dart';
 
 
 class Homepage1 extends StatefulWidget {
@@ -50,6 +52,28 @@ class _Homepage1State extends State<Homepage1> {
     _auth.signOut();
   }
 
+//Function To Launch Hotel Booking URL
+  launchHotelBooking() async{
+    const url= 'https://www.oyorooms.com/np/';
+    if(await canLaunch(url)){
+      print('URL being Launched');
+      await launch(url);
+    }
+    else{
+      throw 'Could not launch URL';
+    }
+  }
+
+  launchAirlineBooking() async{
+    const url= 'https://sastotickets.com/';
+    if(await canLaunch(url)){
+      print('URL being Launched');
+      await launch(url,);
+    }
+    else{
+      throw 'Could not launch URL';
+    }
+  }
   @override
   void initState(){
     super.initState();
@@ -83,7 +107,7 @@ class _Homepage1State extends State<Homepage1> {
             ListTile(
               title:  Text('Destinations'),
               trailing: Icon(Icons.place),
-             onTap: () => Navigator.of(context).pushNamed('\DestinationPage'),
+             onTap: () => Navigator.of(context).pushReplacementNamed('\DestinationPage'),
 
             ),
 
@@ -95,12 +119,14 @@ class _Homepage1State extends State<Homepage1> {
             ListTile(
               title: Text('Hotel Booking'),
               trailing: Icon(Icons.hotel),
+              // onTap: launchHotelBooking(),
             
             ),
 
             ListTile(
               title: Text("Airlines"),
-              trailing: Icon(Icons.flight_takeoff), 
+              trailing: Icon(Icons.flight_takeoff),
+              // onTap: launchAirlineBooking(), 
             ),
             ListTile(
               title: Text('Videos'),
@@ -151,7 +177,7 @@ class _Homepage1State extends State<Homepage1> {
            ),
               
           onTap: (){
-            //_DestinationPage();
+            Navigator.of(context).pushNamed('/DestinationPage');
             }
           ),
            GestureDetector(
@@ -169,7 +195,9 @@ class _Homepage1State extends State<Homepage1> {
                )
            ),
               
-          onTap: (){}
+          onTap: (){
+            
+          }
           ),
           GestureDetector(
             child: Container(
@@ -186,7 +214,10 @@ class _Homepage1State extends State<Homepage1> {
                )
            ),
               
-          onTap: (){}
+          onTap: (){
+            print('Launching URL');
+            launchHotelBooking();
+          }
           ),
           GestureDetector(
             child: Container(
@@ -203,7 +234,9 @@ class _Homepage1State extends State<Homepage1> {
                )
            ),
               
-          onTap: (){}
+          onTap: (){
+            launchAirlineBooking();
+          }
           ),
          GestureDetector(
             child: Container(

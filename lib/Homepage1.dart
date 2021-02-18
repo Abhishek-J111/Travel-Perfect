@@ -107,7 +107,7 @@ class _Homepage1State extends State<Homepage1> {
             ListTile(
               title:  Text('Destinations'),
               trailing: Icon(Icons.place),
-             onTap: () => Navigator.of(context).pushReplacementNamed('\DestinationPage'),
+             // onTap: () => Navigator.of(context).pushNamed('\a'),
 
             ),
 

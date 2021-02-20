@@ -3,8 +3,10 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:travelperfect/Add_Guide.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
+import 'Guide_Information.dart';
 
 
 class Homepage1 extends StatefulWidget {
@@ -112,8 +114,15 @@ class _Homepage1State extends State<Homepage1> {
             ),
 
             ListTile(
-              title: Text(' Trek Companions'),
+              title: Text('Guide Registration'),
               trailing: Icon(Icons.group),
+              onTap: (){
+                Navigator.push(
+                  context, MaterialPageRoute(
+                    builder: (context)=> AddGuide()
+                    )
+                  );
+              },
             ),
 
             ListTile(
@@ -196,7 +205,7 @@ class _Homepage1State extends State<Homepage1> {
            ),
               
           onTap: (){
-            
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> GuideInformation()));
           }
           ),
           GestureDetector(

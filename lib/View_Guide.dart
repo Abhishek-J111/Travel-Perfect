@@ -35,7 +35,7 @@ Contact _contact;
   }
   
   callAction(String number) async{
-    String url = 'tel : $number';
+    String url = 'tel:$number';
     if(await canLaunch(url)){
       await launch(url);
     } else {
@@ -44,7 +44,7 @@ Contact _contact;
   }
 
   smsAction(String number ) async {
-    String url = 'sms = $number';
+    String url = 'sms:$number';
     if(await canLaunch(url)){
       await launch(url);
     }

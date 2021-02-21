@@ -25,10 +25,13 @@ dependencies:
   firebase_database: ^3.0.0
   firebase_storage: ^3.0.0
   folding_cell: null
-  font_awesome_flutter: null
+  font_awesome_flutter: ^8.11.0
   google_fonts: null
   image_picker: ^0.6.7+22
   url_launcher: ^5.7.10
+  carousel_slider: ^3.0.0
+  auto_size_text: ^2.1.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +55,12 @@ flutter:
     - images/Basecamp.jpeg
     - images/2.v2.png
     - images/TravelPerfect.png
+    - images/matthew-mcbrayer-kgkGRmi-EtI-unsplash.jpg
+    - images/bungy.jpg
+    - images/brad-pearson-2MO_9uDDu30-unsplash.jpg
+    - images/taylor-murphy-Kq6lLQVB0zM-unsplash.jpg
+    - images/tim-foster-qrIy8dBzCVU-unsplash.jpg
+  
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

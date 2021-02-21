@@ -20,8 +20,7 @@ class _AddGuideState extends State<AddGuide> {
   String _phone='';
   String  _email='';
   String  _address='';
-  String _displayPhotoUrl="empty";
-  String  _idCardUrl="sadasfjafklafklaR";
+  String _displayPhotoUrl='';
 
   saveInformation(BuildContext context) async {
     if(_firstName.isNotEmpty &&
@@ -29,8 +28,7 @@ class _AddGuideState extends State<AddGuide> {
         _phone.isNotEmpty &&
         _address.isNotEmpty &&
         _email.isNotEmpty &&
-        _displayPhotoUrl.isNotEmpty&&
-        _idCardUrl.isNotEmpty  
+        _displayPhotoUrl.isNotEmpty
      ){
        Contact contact = Contact(this._firstName,this._lastName,this._phone,this._address,this._email,this._displayPhotoUrl);
 
@@ -114,8 +112,7 @@ class _AddGuideState extends State<AddGuide> {
                         ),
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: _displayPhotoUrl == "empty" ? AssetImage("") :
-                          NetworkImage(_displayPhotoUrl),
+                          image: NetworkImage(_displayPhotoUrl),
                         )
                         
                       ),

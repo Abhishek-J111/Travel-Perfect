@@ -7,7 +7,9 @@ import 'package:travelperfect/Add_Guide.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'Guide_Information.dart';
-
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class Homepage1 extends StatefulWidget {
 
@@ -157,135 +159,773 @@ class _Homepage1State extends State<Homepage1> {
         ),
       ),
 
-      body: CustomScrollView(
+      body: new Container(
+              child: CustomScrollView(
+                
   primary: false,
   slivers: <Widget>[
     SliverPadding(
-      padding: const EdgeInsets.all(20),
-      sliver: SliverGrid.count(
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 3,
-        children: <Widget>[
-          
-         
-           GestureDetector(
-            child: Container(
-              height: 20.0,
-              width:20.0,
-              padding: const EdgeInsets.all(8),
-            //  // child: IconButton(icon: Icons., onPressed: null),
+        padding: const EdgeInsets.all(20),
+        sliver: SliverGrid.count(
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 3,
+          children: <Widget>[
             
-               child: Column(
-                 children: <Widget>[
-                   Icon(Icons.place, size: 35.0,color: Colors.blue,),
-                   Text('Destination',
-                   textAlign: TextAlign.justify,)
-                 ],
-               )
-           ),
+           
+             GestureDetector(
+              child: Container(
+                height: 20.0,
+                width:20.0,
+                padding: const EdgeInsets.all(8),
+              //  // child: IconButton(icon: Icons., onPressed: null),
               
-          onTap: (){
-            Navigator.of(context).pushNamed('/DestinationPage');
+                 child: Column(
+                   children: <Widget>[
+                     Icon(Icons.place, size: 35.0,color: Colors.blue,),
+                     Text('Destination',
+                     textAlign: TextAlign.justify,)
+                   ],
+                 )
+             ),
+                
+            onTap: (){
+              Navigator.of(context).pushNamed('/DestinationPage');
+              }
+            ),
+             GestureDetector(
+              child: Container(
+                height: 20.0,
+                width:20.0,
+                padding: const EdgeInsets.all(8),
+          
+                 child: Column(
+                   children: <Widget>[
+                     Icon(Icons.person, size: 35.0,color: Colors.blue,),
+                     Text('Travel Companion',
+                     textAlign: TextAlign.center,)
+                   ],
+                 )
+             ),
+                
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> GuideInformation()));
             }
-          ),
+            ),
+            GestureDetector(
+              child: Container(
+                height: 20.0,
+                width:20.0,
+                padding: const EdgeInsets.all(8),
+          
+                 child: Column(
+                   children: <Widget>[
+                     Icon(Icons.hotel, size: 35.0,color: Colors.blue,),
+                     Text('Hotel Booking',
+                     textAlign: TextAlign.center,)
+                   ],
+                 )
+             ),
+                
+            onTap: (){
+              print('Launching URL');
+              launchHotelBooking();
+            }
+            ),
+            GestureDetector(
+              child: Container(
+                height: 20.0,
+                width:20.0,
+                padding: const EdgeInsets.all(8),
+          
+                 child: Column(
+                   children: <Widget>[
+                     Icon(Icons.flight_takeoff, size: 35.0,color: Colors.blue,),
+                     Text('Airlines',
+                     textAlign: TextAlign.center,)
+                   ],
+                 )
+             ),
+                
+            onTap: (){
+              launchAirlineBooking();
+            }
+            ),
            GestureDetector(
-            child: Container(
-              height: 20.0,
-              width:20.0,
-              padding: const EdgeInsets.all(8),
-        
-               child: Column(
-                 children: <Widget>[
-                   Icon(Icons.person, size: 35.0,color: Colors.blue,),
-                   Text('Travel Companion',
-                   textAlign: TextAlign.center,)
-                 ],
-               )
-           ),
+              child: Container(
+                height: 20.0,
+                width:20.0,
+                padding: const EdgeInsets.all(8),
+          
+                 child: Column(
+                   children: <Widget>[
+                     Icon(Icons.video_label, size: 35.0,color: Colors.blue,),
+                     Text('Videos',
+                     textAlign: TextAlign.center,)
+                   ],
+                 )
+             ),
+                
+            onTap: (){}
+            ),
+            GestureDetector(
+              child: Container(
+                height: 20.0,
+                width:20.0,
+                padding: const EdgeInsets.all(8),
+          
+                 child: Column(
+                   children: <Widget>[
+                     Icon(Icons.more_horiz, size: 35.0,color: Colors.blue,),
+                     Text('View More',
+                     textAlign: TextAlign.center,)
+                   ],
+                 )
+             ),
+                
+            onTap: (){}
+            ),
+          ],
+        ),
+    ),
+  SliverFillRemaining(
+    child: ListView(
+      children: [
+          CarouselSlider(
+            items: [
+              Stack(
+                              children:[
+                 GestureDetector(
+                                    child: Container(
+                    margin: EdgeInsets.all(6.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: DecorationImage(
+                        image: AssetImage(
+                            "images/bungy.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                ),
+                   onTap: (){
+                     print('Gesture Detector');
+                     showDialog(
+                       context: context ,
+                       builder: (context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+
+                    ),
+                    title: Text('Bungee Jump',
+                    style:TextStyle(
+                      color: Colors.lightBlueAccent,
+                      fontWeight: FontWeight.bold
+                    ),
+                    ),
+                    content: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  FontAwesomeIcons.locationArrow
+                                ),
+                              
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Container(
+                                  child: Text('Kusma,Nepal')
+                                ),
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Icon(
+                                    FontAwesomeIcons.calendar
+                                  ),
+                                
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:8.0),
+                                  child: Container(
+                                    child: AutoSizeText('Any Part of the Year',
+                                    maxLines: 5,
+                                    maxFontSize: 15,)
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    actions: [
+                      FlatButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        }, child: Text('Got it'))
+                    ],
+                  );
+                       }
+                     );
+                },
+                 ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10.0,8.0,0.0,0.0),
+                  child: Container(
+                    alignment:Alignment.topLeft,
+                    child: Text('Bungee Jump',
+                    style:TextStyle(
+                     color: Colors.black,
+                     fontWeight: FontWeight.bold,
+                    
+
+                    ),
+                    )
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0,20.0,0.0,0.0),
+                  child: Container(
+                    alignment: Alignment.topRight,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.location_city
+                        ),
+                        Text(
+                          'Kushma,Nepal'
+                        )
+                      ],
+
+                    ),
+                  ),
+                )
+                              ]
+              ),
+              Stack(
+                              children:[
+                 GestureDetector(
+                                    child: Container(
+                    margin: EdgeInsets.all(6.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                         image: DecorationImage( 
+                        image: AssetImage( "images/matthew-mcbrayer-kgkGRmi-EtI-unsplash.jpg"),
+                           fit: BoxFit.cover,
+                           ),  // 
+                      ),
+
+                    ),
+                      onTap: (){
+                     print('Gesture Detector');
+                     showDialog(
+                       context: context ,
+                       builder: (context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+
+                    ),
+                    title: Text('kayaking',
+                    style:TextStyle(
+                      color: Colors.lightBlueAccent,
+                      fontWeight: FontWeight.bold
+                    ),
+                    ),
+                    content: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  FontAwesomeIcons.locationArrow
+                                ),
+                              
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Container(
+                                  child: Text('Trishuli River')
+                                ),
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Icon(
+                                    FontAwesomeIcons.calendar
+                                  ),
+                                
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:8.0),
+                                  child: Container(
+                                    child: AutoSizeText('Summer & Autumn Season',
+                                    maxLines: 5,
+                                    maxFontSize: 15,)
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    actions: [
+                      FlatButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        }, child: Text('Got it'))
+                    ],
+                  );
+                       }
+                     );
+                }
+                 ),
               
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> GuideInformation()));
-          }
-          ),
-          GestureDetector(
-            child: Container(
-              height: 20.0,
-              width:20.0,
-              padding: const EdgeInsets.all(8),
-        
-               child: Column(
-                 children: <Widget>[
-                   Icon(Icons.hotel, size: 35.0,color: Colors.blue,),
-                   Text('Hotel Booking',
-                   textAlign: TextAlign.center,)
-                 ],
-               )
-           ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10.0,8.0,0.0,0.0),
+                  child: Container(
+                    alignment:Alignment.topLeft,
+                    child: Text('Kayaking',
+                    style:TextStyle(
+                     color: Colors.black,
+                     fontWeight: FontWeight.bold,
+                    
+
+                    ),
+                    )
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0,20.0,0.0,0.0),
+                  child: Container(
+                    alignment: Alignment.topRight,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.location_city
+                        ),
+                        Text(
+                          'Trishuli River'
+                        )
+                      ],
+
+                    ),
+                  ),
+                )
+                              ]
+              ),
+              Stack(
+                              children:[
+                 GestureDetector(
+                                    child: Container(
+                    margin: EdgeInsets.all(6.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: DecorationImage(
+                        image: AssetImage(
+                            "images/brad-pearson-2MO_9uDDu30-unsplash.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                ),
+                  onTap: (){
+                     print('Gesture Detector');
+                     showDialog(
+                       context: context ,
+                       builder: (context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+
+                    ),
+                    title: Text('Rafting',
+                    style:TextStyle(
+                      color: Colors.lightBlueAccent,
+                      fontWeight: FontWeight.bold
+                    ),
+                    ),
+                    content: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  FontAwesomeIcons.locationArrow
+                                ),
+                              
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Container(
+                                  child: Text('Trishuli & Seti River')
+                                ),
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Icon(
+                                    FontAwesomeIcons.calendar
+                                  ),
+                                
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:8.0),
+                                  child: Container(
+                                    child: AutoSizeText('Summer & Autumn Season',
+                                    maxLines: 5,
+                                    maxFontSize: 15,)
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    actions: [
+                      FlatButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        }, child: Text('Got it'))
+                    ],
+                  );
+                       }
+                     );
+                }
+                 ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10.0,8.0,0.0,0.0),
+                  child: Container(
+                    alignment:Alignment.topLeft,
+                    child: Text('Rafting',
+                    style:TextStyle(
+                     color: Colors.black,
+                     fontWeight: FontWeight.bold,
+                    
+
+                    ),
+                    )
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0,20.0,0.0,0.0),
+                  child: Container(
+                    alignment: Alignment.topRight,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.location_city
+                        ),
+                        Text(
+                          'Upper Seti River'
+                        )
+                      ],
+
+                    ),
+                  ),
+                )
+                              ]
+              ),
+
+              Stack(
+                              children:[
+                 GestureDetector(
+                                    child: Container(
+                    margin: EdgeInsets.all(6.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: DecorationImage(
+                        image: AssetImage(
+                            "images/taylor-murphy-Kq6lLQVB0zM-unsplash.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                ),
+                   onTap: (){
+                     print('Gesture Detector');
+                     showDialog(
+                       context: context ,
+                       builder: (context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+
+                    ),
+                    title: Text('Ice Climbing',
+                    style:TextStyle(
+                      color: Colors.lightBlueAccent,
+                      fontWeight: FontWeight.bold
+                    ),
+                    ),
+                    content: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  FontAwesomeIcons.locationArrow
+                                ),
+                              
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Container(
+                                  child: Text('Humde,Manang')
+                                ),
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Icon(
+                                    FontAwesomeIcons.calendar
+                                  ),
+                                
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:8.0),
+                                  child: Container(
+                                    child: AutoSizeText('Winter Season',
+                                    maxLines: 5,
+                                    maxFontSize: 15,)
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    actions: [
+                      FlatButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        }, child: Text('Got it'))
+                    ],
+                  );
+                       }
+                     );
+                },
+                 ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10.0,8.0,0.0,0.0),
+                  child: Container(
+                    alignment:Alignment.topLeft,
+                    child: Text('Ice Climbing',
+                    style:TextStyle(
+                     color: Colors.black,
+                     fontWeight: FontWeight.bold,
+                    
+
+                    ),
+                    )
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0,20.0,0.0,0.0),
+                  child: Container(
+                    alignment: Alignment.topRight,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.location_city
+                        ),
+                        Text(
+                          'Humde,Manang'
+                        )
+                      ],
+
+                    ),
+                  ),
+                )
+                              ]
+              ),
+             
+              Stack(
+                children:[
+                   GestureDetector(
+                                        child: Container(
+                      margin: EdgeInsets.all(6.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        image: DecorationImage(
+                          image: AssetImage(
+                              "images/tim-foster-qrIy8dBzCVU-unsplash.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                  ),
+                   onTap: (){
+                     print('Gesture Detector');
+                     showDialog(
+                       context: context ,
+                       builder: (context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+
+                    ),
+                    title: Text('Mountain Biking',
+                    style:TextStyle(
+                      color: Colors.lightBlueAccent,
+                      fontWeight: FontWeight.bold
+                    ),
+                    ),
+                    content: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  FontAwesomeIcons.locationArrow
+                                ),
+                              
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Container(
+                                  child: Text('Ride All Over Nepal')
+                                ),
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Icon(
+                                    FontAwesomeIcons.calendar
+                                  ),
+                                
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:8.0),
+                                  child: Container(
+                                    child: AutoSizeText('Spring & Autumn Season',
+                                    maxLines: 5,
+                                    maxFontSize: 15,)
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    actions: [
+                      FlatButton(
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        }, child: Text('Got it'))
+                    ],
+                  );
+                       }
+                     );
+                },
+                   ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(10.0,8.0,0.0,0.0),
+                    child: Container(
+                      alignment:Alignment.topLeft,
+                      child: Text('Mountain Biking',
+                      style:TextStyle(
+                       color: Colors.black,
+                       fontWeight: FontWeight.bold,
+                      
+
+                      ),
+                      )
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8.0,20.0,0.0,0.0),
+                    child: Container(
+                      alignment: Alignment.topRight,
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.location_city
+                          ),
+                          Text(
+                            'All Over Nepal'
+                          )
+                        ],
+
+                      ),
+                    ),
+                  )
+                ]
+                ),
               
-          onTap: (){
-            print('Launching URL');
-            launchHotelBooking();
-          }
-          ),
-          GestureDetector(
-            child: Container(
-              height: 20.0,
-              width:20.0,
-              padding: const EdgeInsets.all(8),
-        
-               child: Column(
-                 children: <Widget>[
-                   Icon(Icons.flight_takeoff, size: 35.0,color: Colors.blue,),
-                   Text('Airlines',
-                   textAlign: TextAlign.center,)
-                 ],
-               )
-           ),
-              
-          onTap: (){
-            launchAirlineBooking();
-          }
-          ),
-         GestureDetector(
-            child: Container(
-              height: 20.0,
-              width:20.0,
-              padding: const EdgeInsets.all(8),
-        
-               child: Column(
-                 children: <Widget>[
-                   Icon(Icons.video_label, size: 35.0,color: Colors.blue,),
-                   Text('Videos',
-                   textAlign: TextAlign.center,)
-                 ],
-               )
-           ),
-              
-          onTap: (){}
-          ),
-          GestureDetector(
-            child: Container(
-              height: 20.0,
-              width:20.0,
-              padding: const EdgeInsets.all(8),
-        
-               child: Column(
-                 children: <Widget>[
-                   Icon(Icons.more_horiz, size: 35.0,color: Colors.blue,),
-                   Text('View More',
-                   textAlign: TextAlign.center,)
-                 ],
-               )
-           ),
-              
-          onTap: (){}
+             
+            ],
+
+            //Slider Container properties
+            options: CarouselOptions(
+              height: 180.0,
+              enlargeCenterPage: true,
+              autoPlay: false,
+              aspectRatio: 16 / 9,
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enableInfiniteScroll: true,
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              viewportFraction: 0.8,
+              onPageChanged: (index,reason){
+                setState(() {
+                
+                });
+              }
+            ),
           ),
         ],
-      ),
     ),
+  )
   ],
-)
+),
+
+      ),
+      
+      
     );
   }
 }

@@ -62,6 +62,10 @@ flutter:
     - images/brad-pearson-2MO_9uDDu30-unsplash.jpg
     - images/taylor-murphy-Kq6lLQVB0zM-unsplash.jpg
     - images/tim-foster-qrIy8dBzCVU-unsplash.jpg
+    - videos/ABC.mp4
+    - videos/Eversest.mp4
+    - videos/Mardi.mp4
+    - videos/Tilicho.mp4
   
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

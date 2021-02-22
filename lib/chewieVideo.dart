@@ -18,11 +18,19 @@ class _VideoState extends State<Video> {
       body: ListView(
         children: <Widget>[
           videoList(
-            videoPlayerController:VideoPlayerController.network('http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'),
+            videoPlayerController:VideoPlayerController.asset('videos/ABC.mp4'),
+            looping: true,
+          ),
+         videoList(
+            videoPlayerController:VideoPlayerController.asset('videos/Eversest.mp4'),
             looping: true,
           ),
           videoList(
-            videoPlayerController:VideoPlayerController.network('https://drive.google.com/file/d/1vEugbnkEbbm2X0pKFVbHYcmeeIMuyh8S/view'),
+            videoPlayerController:VideoPlayerController.asset('videos/Mardi.mp4'),
+            looping: true,
+          ),
+          videoList(
+            videoPlayerController:VideoPlayerController.asset('videos/Tilicho.mp4'),
             looping: true,
           ),
         ],

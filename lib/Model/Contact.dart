@@ -10,13 +10,16 @@ class Contact{
   String  _email;
   String  _address;
   String _displayPhotoUrl;
+  String _guideId;
+  String _age;
+  String _route;
 
   //Constructor For Adding Data
-  Contact(this._firstName,this._lastName,this._phone,this._address,this._email,this._displayPhotoUrl);
+  Contact(this._firstName,this._lastName,this._phone,this._address,this._email,this._displayPhotoUrl,_guideId,_age,_route);
 
 
   //Constructor For Editing Data
-  Contact.withId(this._id,this._firstName,this._lastName,this._phone,this._address,this._email,this._displayPhotoUrl);
+  Contact.withId(this._id,this._firstName,this._lastName,this._phone,this._address,this._email,this._displayPhotoUrl,_guideId,_age,_route);
 
   //getters 
   String get id => this._id;
@@ -26,7 +29,9 @@ class Contact{
   String get address => this._address;
   String get email => this._email;
   String get photoUrl => this._displayPhotoUrl;
-  // String get idCardUrl => this._idCardUrl;
+  String get guideId => this._guideId;
+  String get age => this._age;
+  String get route => this._route;
 
   //Setters
   set firstName(String firstName){
@@ -48,10 +53,15 @@ class Contact{
   set photoUrl(String photoUrl){
     this._displayPhotoUrl = photoUrl;
   }
-  // set idCardUrl(String idCardUrl){
-  //   this._idCardUrl = idCardUrl;
-  // }
-
+  set guideId(String guideId){
+    this._guideId = guideId;
+  }
+  set age(String age){
+    this._age = age;
+  }
+  set route(String route){
+    this._route = route;
+  }
   Contact.fromSnapshot(DataSnapshot snapshot){
     this._id = snapshot.key;
     this._firstName = snapshot.value['firstName'];
@@ -60,7 +70,9 @@ class Contact{
     this._address = snapshot.value['address'];
     this._email = snapshot.value['email'];
     this._displayPhotoUrl = snapshot.value['photoUrl'];
-    // this._idCardUrl = snapshot.value['idCardUrl'];
+    this._guideId= snapshot.value['guideId'];
+    this._age= snapshot.value['age'];
+    this._route= snapshot.value['route'];
   }
 
   Map<String,dynamic> toJson (){
@@ -71,7 +83,9 @@ class Contact{
       "address":_address,
       "email":_email,
       "photoUrl":_displayPhotoUrl,
-      // "idCardUrl":_idCardUrl,
+      "guideId":_guideId,
+      "age":_age,
+      "route":_route
     };
   }
 }

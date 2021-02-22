@@ -21,6 +21,9 @@ class _AddGuideState extends State<AddGuide> {
   String  _email='';
   String  _address='';
   String _displayPhotoUrl='';
+  String _guideId='';
+  String _age='';
+  String _route='';
 
   saveInformation(BuildContext context) async {
     if(_firstName.isNotEmpty &&
@@ -28,9 +31,12 @@ class _AddGuideState extends State<AddGuide> {
         _phone.isNotEmpty &&
         _address.isNotEmpty &&
         _email.isNotEmpty &&
-        _displayPhotoUrl.isNotEmpty
+        _displayPhotoUrl.isNotEmpty &&
+        _guideId.isNotEmpty &&
+        _age.isNotEmpty &&
+        _route.isNotEmpty
      ){
-       Contact contact = Contact(this._firstName,this._lastName,this._phone,this._address,this._email,this._displayPhotoUrl);
+       Contact contact = Contact(this._firstName,this._lastName,this._phone,this._address,this._email,this._displayPhotoUrl,this._guideId,this._age,this._route);
 
        await _databaseReference.push().set(contact.toJson());
        navigateToLastScreen(context);
@@ -204,7 +210,59 @@ class _AddGuideState extends State<AddGuide> {
                 )
               ),
               Container(
+                margin: EdgeInsets.only(top: 20.0),
+                child: TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      _guideId = value;
+                    });
+                  },
+                  decoration:InputDecoration(
+                    labelText : 'Guide ID',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    )
+                  )
+                )
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20.0),
+                child: TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      _age = value;
+                    });
+                  },
+                  decoration:InputDecoration(
+                    labelText : 'Age',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    )
+                  )
+                )
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20.0),
+                child: TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      _route = value;
+                    });
+                  },
+                  decoration:InputDecoration(
+                    labelText : 'Your Specialized Route',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    )
+                  )
+                )
+              ),
+              Container(
                 child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    side: BorderSide(color: Colors.blue[400])
+                  ),
                   padding: EdgeInsets.only(top:20.0),
                   onPressed:() 
                   {

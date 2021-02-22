@@ -70,7 +70,10 @@ class _GuideInformationState extends State<GuideInformation> {
                                 ),
                                 Text(
                                   "${snapshot.value['phone']}",
-                                )
+                                ),
+                                //  Text(
+                                //   "${snapshot.value['route']}",
+                                // ),
                               ],
                             )
                           )
@@ -88,11 +91,11 @@ class _GuideInformationState extends State<GuideInformation> {
         
       ),
 
-      floatingActionButton:  FloatingActionButton(
-          onPressed: navigateToAddScreen,
-          child: Icon(Icons.add),
+      // floatingActionButton:  FloatingActionButton(
+      //     onPressed: navigateToAddScreen,
+      //     child: Icon(Icons.add),
 
-          ),
+      //     ),
 
      
       

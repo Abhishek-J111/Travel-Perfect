@@ -4,13 +4,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:travelperfect/Add_Guide.dart';
+import 'package:travelperfect/mainDestinationPage.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'Guide_Information.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-
+import 'chewieVideo.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 class Homepage1 extends StatefulWidget {
 
   @override
@@ -266,7 +268,12 @@ class _Homepage1State extends State<Homepage1> {
                  )
              ),
                 
-            onTap: (){}
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context)=>Video())
+                );
+            }
             ),
             GestureDetector(
               child: Container(
@@ -924,7 +931,35 @@ class _Homepage1State extends State<Homepage1> {
 ),
 
       ),
+floatingActionButton: FloatingActionButton.extended(
+  onPressed: (){
+    Navigator.push(context, MaterialPageRoute(builder:(context)=>AddGuide() ));
+  }, 
+  label: Text('Be a Guide'),
+  elevation: 4.0,
+  ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+  bottomNavigationBar: BottomAppBar(
+
+    child: Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        IconButton(
+          icon: Icon(FontAwesomeIcons.video,size: 30.0,), onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Video()));
+          }),
+        IconButton(
+          icon: Icon(FontAwesomeIcons.plane), onPressed: (){
+          launchAirlineBooking();
+          }),
+          
+          
+          
+      ],
       
+    ),
+  ),    
       
     );
   }

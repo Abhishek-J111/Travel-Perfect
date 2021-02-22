@@ -125,7 +125,7 @@ Contact _contact;
                               width: 10.0,
                             ),
                             Text(
-                              "${_contact.firstName} ${_contact.lastName}",
+                              "${_contact.firstName} ",
                               style: TextStyle(fontSize: 20.0),
                             ),
                           ],
@@ -188,42 +188,42 @@ Contact _contact;
                           ],
                         )),
                   ),
-                  // Card(
-                  //   elevation: 2.0,
-                  //   child: Container(
-                  //       margin: EdgeInsets.all(20.0),
-                  //       width: double.maxFinite,
-                  //       child: Row(
-                  //         children: <Widget>[
-                  //           Icon(Icons.app_registration),
-                  //           Container(
-                  //             width: 10.0,
-                  //           ),
-                  //           Text(
-                  //             _contact.guideId,
-                  //             style: TextStyle(fontSize: 20.0),
-                  //           ),
-                  //         ],
-                  //       )),
-                  // ),
-                  // Card(
-                  //   elevation: 2.0,
-                  //   child: Container(
-                  //       margin: EdgeInsets.all(20.0),
-                  //       width: double.maxFinite,
-                  //       child: Row(
-                  //         children: <Widget>[
-                  //           Icon(Icons.person_add),
-                  //           Container(
-                  //             width: 10.0,
-                  //           ),
-                  //           Text(
-                  //             _contact.age,
-                  //             style: TextStyle(fontSize: 20.0),
-                  //           ),
-                  //         ],
-                  //       )),
-                  // ),
+                  Card(
+                    elevation: 2.0,
+                    child: Container(
+                        margin: EdgeInsets.all(20.0),
+                        width: double.maxFinite,
+                        child: Row(
+                          children: <Widget>[
+                            Icon(FontAwesomeIcons.idCard),
+                            Container(
+                              width: 10.0,
+                            ),
+                            Text(
+                              _contact.guideId,
+                              style: TextStyle(fontSize: 20.0),
+                            ),
+                          ],
+                        )),
+                  ),
+                  Card(
+                    elevation: 2.0,
+                    child: Container(
+                        margin: EdgeInsets.all(20.0),
+                        width: double.maxFinite,
+                        child: Row(
+                          children: <Widget>[
+                            Icon(Icons.person_add),
+                            Container(
+                              width: 10.0,
+                            ),
+                            Text(
+                              _contact.age,
+                              style: TextStyle(fontSize: 20.0),
+                            ),
+                          ],
+                        )),
+                  ),
                   // call and sms
                   Card(
                     elevation: 2.0,
@@ -269,14 +269,14 @@ Contact _contact;
                             //     // navigateToEditScreen(id);
                             //   },
                             // ),
-                            IconButton(
-                              iconSize: 30.0,
-                              icon: Icon(Icons.delete),
-                              color: Colors.red,
-                              onPressed: () {
-                                deleteContact();
-                              },
-                            )
+                            // IconButton(
+                            //   iconSize: 30.0,
+                            //   icon: Icon(Icons.delete),
+                            //   color: Colors.red,
+                            //   onPressed: () {
+                            //     deleteContact();
+                            //   },
+                            // )
                           ],
                         )),
                   )

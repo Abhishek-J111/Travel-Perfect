@@ -16,27 +16,23 @@ class _AddGuideState extends State<AddGuide> {
   DatabaseReference _databaseReference = FirebaseDatabase.instance.reference();
 
   String _firstName='';
-   String _lastName='';
   String _phone='';
   String  _email='';
   String  _address='';
   String _displayPhotoUrl='';
   String _guideId='';
   String _age='';
-  String _route='';
 
   saveInformation(BuildContext context) async {
     if(_firstName.isNotEmpty &&
-        _lastName.isNotEmpty &&
         _phone.isNotEmpty &&
         _address.isNotEmpty &&
         _email.isNotEmpty &&
         _displayPhotoUrl.isNotEmpty &&
-        _guideId.isNotEmpty &&
-        _age.isNotEmpty &&
-        _route.isNotEmpty
+        _guideId.isNotEmpty 
+
      ){
-       Contact contact = Contact(this._firstName,this._lastName,this._phone,this._address,this._email,this._displayPhotoUrl,this._guideId,this._age,this._route);
+       Contact contact = Contact(this._firstName,this._phone,this._address,this._email,this._displayPhotoUrl,this._guideId,this._age);
 
        await _databaseReference.push().set(contact.toJson());
        navigateToLastScreen(context);
@@ -138,7 +134,7 @@ class _AddGuideState extends State<AddGuide> {
                     });
                   },
                   decoration:InputDecoration(
-                    labelText : 'First Name',
+                    labelText : 'Full Name',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
                     )
@@ -150,11 +146,11 @@ class _AddGuideState extends State<AddGuide> {
                 child: TextField(
                   onChanged: (value) {
                     setState(() {
-                      _lastName = value;
+                      _age = value;
                     });
                   },
                   decoration:InputDecoration(
-                    labelText : 'Last Name',
+                    labelText : 'Age',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
                     )
@@ -225,38 +221,38 @@ class _AddGuideState extends State<AddGuide> {
                   )
                 )
               ),
-              Container(
-                margin: EdgeInsets.only(top: 20.0),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      _age = value;
-                    });
-                  },
-                  decoration:InputDecoration(
-                    labelText : 'Age',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    )
-                  )
-                )
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 20.0),
-                child: TextField(
-                  onChanged: (value) {
-                    setState(() {
-                      _route = value;
-                    });
-                  },
-                  decoration:InputDecoration(
-                    labelText : 'Your Specialized Route',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    )
-                  )
-                )
-              ),
+              // Container(
+              //   margin: EdgeInsets.only(top: 20.0),
+              //   child: TextField(
+              //     onChanged: (value) {
+              //       setState(() {
+              //         _age = value;
+              //       });
+              //     },
+              //     decoration:InputDecoration(
+              //       labelText : 'Age',
+              //       border: OutlineInputBorder(
+              //         borderRadius: BorderRadius.circular(20.0),
+              //       )
+              //     )
+              //   )
+              // ),
+              // Container(
+              //   margin: EdgeInsets.only(top: 20.0),
+              //   child: TextField(
+              //     onChanged: (value) {
+              //       setState(() {
+              //         _route = value;
+              //       });
+              //     },
+              //     decoration:InputDecoration(
+              //       labelText : 'Your Specialized Route',
+              //       border: OutlineInputBorder(
+              //         borderRadius: BorderRadius.circular(20.0),
+              //       )
+              //     )
+              //   )
+              // ),
               Container(
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(

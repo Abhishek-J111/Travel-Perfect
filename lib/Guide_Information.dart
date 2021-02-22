@@ -66,14 +66,14 @@ class _GuideInformationState extends State<GuideInformation> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  "${snapshot.value['firstName']}" + "${snapshot.value['lastName']}"
+                                  "${snapshot.value['firstName']}" 
                                 ),
                                 Text(
                                   "${snapshot.value['phone']}",
                                 ),
-                                //  Text(
-                                //   "${snapshot.value['route']}",
-                                // ),
+                                 Text(
+                                  "${snapshot.value['age']}",
+                                ),
                               ],
                             )
                           )

@@ -17,5 +17,4 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 =======
 # Travel-Perfect
-Minor Project for Katmandu Engineering College
 >>>>>>> 6d0f6fa79afa3da3c3ba1aa79af33f2f0b71b304
